@@ -1,0 +1,83 @@
+﻿@model SalesWebMvc.Models.ViewModels.SellerFormViewModel
+
+<h2 class="mt-4">Edit Seller</h2>
+
+<div class="row">
+    <div class="col-md-4 offset-4 mt-3">
+        <form asp-action="Edit">
+            <input type="hidden" asp-for="Seller.SellerId" />
+            <fieldset>
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Seller.SellerName" class="control-label mt-2"></label>
+                    <input asp-for="Seller.SellerName" class="form-control" />
+                    <span asp-validation-for="Seller.SellerName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Seller.Birthday" class="control-label mt-2"></label>
+                    <input asp-for="Seller.Birthday" class="form-control" />
+                    <span asp-validation-for="Seller.Birthday" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Seller.EmailAddress" class="control-label mt-2"></label>
+                    <input asp-for="Seller.EmailAddress" class="form-control" />
+                    <span asp-validation-for="Seller.EmailAddress" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Seller.PhoneNumber" class="control-label mt-2"></label>
+                    <input asp-for="Seller.PhoneNumber" class="form-control" />
+                    <span asp-validation-for="Seller.PhoneNumber" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Seller.Address" class="control-label mt-2"></label>
+                    <input asp-for="Seller.Address" class="form-control" />
+                    <span asp-validation-for="Seller.Address" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Seller.PostalCode" class="control-label mt-2"></label>
+                    <input asp-for="Seller.PostalCode" class="form-control" />
+                    <span asp-validation-for="Seller.PostalCode" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Seller.City" class="control-label mt-2"></label>
+                    <input asp-for="Seller.City" class="form-control" />
+                    <span asp-validation-for="Seller.City" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Seller.District" class="control-label mt-2"></label>
+                    <input asp-for="Seller.District" class="form-control" />
+                    <span asp-validation-for="Seller.District" class="text-danger"></span>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="Seller.JoinCompany" class="control-label mt-2"></label>
+                        <input asp-for="Seller.JoinCompany" class="form-control" />
+                        <span asp-validation-for="Seller.JoinCompany" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="Seller.BaseSalary" class="control-label mt-2"></label>
+                        <input asp-for="Seller.BaseSalary" class="form-control" />
+                        <span asp-validation-for="Seller.BaseSalary" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Seller.DepartmentId" class="control-label mt-2"></label>
+                    <select asp-for="Seller.DepartmentId" asp-items="@(new SelectList(Model.Departments, "DepartmentId", "Name"))" class=" form-select form-control"></select>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-success mt-2" />
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-outline-light">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

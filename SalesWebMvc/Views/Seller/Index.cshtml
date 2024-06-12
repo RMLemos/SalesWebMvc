@@ -1,0 +1,35 @@
+﻿@model IEnumerable<SalesWebMvc.Models.Seller>
+
+<h2 class="mt-4">Sellers</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-outline-light mt-3 mb-3">Create New</a>
+</p>
+
+<table class="table table-hover">
+    <thead>
+            <tr class="table-active">
+            <th scope="col">@Html.DisplayNameFor(model => model.SellerName)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.EmailAddress)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.PhoneNumber)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.BaseSalary)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr class="table-active">
+                <td>@Html.DisplayFor(modelItem => item.SellerName)</td>
+                <td>@Html.DisplayFor(modelItem => item.EmailAddress)</td>
+                <td>@Html.DisplayFor(modelItem => item.PhoneNumber)</td>
+                <td>@Html.DisplayFor(modelItem => item.BaseSalary)</td>
+                <td> 
+                    <a asp-action="Edit" asp-route-id="@item.SellerId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.SellerId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.SellerId">Delete</a>
+                </td>
+            </tr>
+        } 
+    </tbody>
+</table>
